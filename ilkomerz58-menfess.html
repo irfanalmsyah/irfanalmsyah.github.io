@@ -40,7 +40,7 @@ from itertools import cycle
 from dotenv import load_dotenv
 from keep_alive import keep_alive
 							</code></pre>
-							<p>This lines of code import packages and modules required. <code>discord</code> and <code>discord.ext</code> is API wrapper for discord. It's basically essential for this project.<code>io</code> is required to sending attachment (images, videos, etc). <code>os</code> and <code>dotenv</code> is required to take credential from <code>.env</code> file. <code> itertools</code> is required to make the discord bot presence changing periodically. <code>keep_alive</code> is required for repl.it so the bot is always running</p>
+							<p>These lines of code import packages and modules required. <code>discord</code> and <code>discord.ext</code> is API wrapper for discord. It's basically essential for this project.<code>io</code> is required to sending attachment (images, videos, etc). <code>os</code> and <code>dotenv</code> is required to take credential from <code>.env</code> file. <code> itertools</code> is required to make the discord bot presence changing periodically. <code>keep_alive</code> is required for repl.it so the bot is always running</p>
 							<pre><code class="language-python">
 load_dotenv()
 client = commands.Bot(command_prefix='.')
@@ -55,7 +55,7 @@ async def on_ready():
 	print('{0.user} is on'.format(client))
 	change_status.start()
 							</code></pre>
-							<p>This lines of code prints the bot name and discriminator and runs a function to change the bot activity presence</p>
+							<p>These lines of code prints the bot name and discriminator and runs a function to change the bot activity presence</p>
 							<pre><code class="language-python">
 @tasks.loop(seconds=10)
 async def change_status():
@@ -73,14 +73,14 @@ async def pull_files(abc):
         files = [await pull_attachment(attachment) for attachment in abc]
         return files
 							</code></pre>
-							<p>This lines of code defines a function to change the bot activity presence, a function to pull attachment and file from user</p>
+							<p>These lines of code defines a function to change the bot activity presence, a function to pull attachment and file from user</p>
 
 							<pre><code class="language-python">
 @client.command()
 async def ping(ctx):
   await ctx.send('pong')
 							</code></pre>
-							<p>This lines of code defines a function to send <code>pong</code> when the user send <code>.ping</code></p>
+							<p>These lines of code defines a function to send <code>pong</code> when the user send <code>.ping</code></p>
 
 							<pre><code class="language-python">
 @client.command()
@@ -103,7 +103,7 @@ async def ct(ctx):
     message = await channel1.send(sent_message, files=files)
     await message.create_thread(name = thread_name)
 							</code></pre>
-							<p>This lines of code defines a function to create a thread when the user send <code>.ct [message]</code></p>
+							<p>These lines of code defines a function to create a thread when the user send <code>.ct [message]</code></p>
 							<pre><code class="language-python">
 @client.command()
 async def rt(ctx, index):
@@ -126,7 +126,7 @@ async def rt(ctx, index):
         files = await pull_files(ctx.message.attachments)
         await thread.send(del2, files=files)
 							</code></pre>
-							<p>This lines of code defines a function to reply to a thread when the user send <code>.rt [threadindex] [message]</code></p>
+							<p>These lines of code defines a function to reply to a thread when the user send <code>.rt [threadindex] [message]</code></p>
 
 							<pre><code class="language-python">
 @client.command()
@@ -140,7 +140,7 @@ async def m(ctx):
     msg = await channel1.send('**Menfess:** '+del1, files=files)
     await msg.add_reaction('❤️')
 							</code></pre>
-							<p>This lines of code defines a function to send a message when the user send <code>.m [message]</code></p>
+							<p>These lines of code defines a function to send a message when the user send <code>.m [message]</code></p>
 							<pre><code class="language-python">
 @client.command()
 async def tampol(ctx, member:discord.User=None):
@@ -149,7 +149,7 @@ async def tampol(ctx, member:discord.User=None):
   else:
       await ctx.send(f"{ctx.message.author.mention} menampol {member.mention}!")  
 							</code></pre>
-							<p>This lines of code defines a function to send a <code>[message author] tampol [user]</code> when the user send <code>.tampol [user]</code></p>
+							<p>These lines of code defines a function to send a <code>[message author] tampol [user]</code> when the user send <code>.tampol [user]</code></p>
 
 							<pre><code class="language-python">
 @client.command()
@@ -157,7 +157,7 @@ async def github(ctx):
   await ctx.send('https://github.com/irfanalmsyah/Ilkomerz58-Menfess')
   await ctx.send('https://replit.com/@irfanalmsyah/Ilkomerz58-Menfess')  
 							</code></pre>
-							<p>This lines of code defines a function to send link to this bot repository when the user send <code>.github</code></p>
+							<p>These lines of code defines a function to send link to this bot repository when the user send <code>.github</code></p>
 
 							<pre><code class="language-python">
 @client.command()
@@ -170,12 +170,12 @@ async def gangerti(ctx):
 .github | show the bot github repository
   """) 
 							</code></pre>
-							<p>This lines of code defines a function to send help message when the user send <code>.gangerti</code></p>
+							<p>These lines of code defines a function to send help message when the user send <code>.gangerti</code></p>
 							<pre><code class="language-python">
 keep_alive()  
 client.run (os.getenv("TOKEN"))
 							</code></pre>
-							<p>The first line runs <code>keep_alive()</code>function and the bot</p>
+							<p>This runs <code>keep_alive()</code>function and the bot</p>
 						</div>
 
 					</div>
