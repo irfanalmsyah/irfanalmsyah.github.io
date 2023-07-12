@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import formatDate from "@/utils/formatDate";
+import Link from "@/components/shared/Link.astro";
+import WdilwmCard from "@/components/WdilwmCard.astro";
+
+const wdilwms = await getCollection("wdilwms");
+wdilwms.sort((a, b) => Date.parse(b.data.publishedAt) - Date.parse(a.data.publishedAt));
+---
+
+<Layout title="WDILWMs">
+  <main class="flex flex-col gap-20">
+    <header>
+      <h1 class="text-2xl text-neutral-100">WDILWMs</h1>
+      <p class="text-neutral-300">
+        What Did I Learn While Making - A series of articles where I share what I learned while making a project.
+      </p>
+    </header>
+
+    <article class="flex flex-col gap-8">
+      {wdilwms.length === 0 && <p>Soon, stay connected 👀...</p>}
+      <section class="flex flex-col gap-4 md:flex-row md:flex-wrap">
+        {
+          wdilwms.length !== 0 &&
+            wdilwms
+              .map((wdilwm) => (
+                <WdilwmCard
+                  publishedAt={wdilwm.data.publishedAt}
+                  title={wdilwm.data.title}
+                  description={wdilwm.data.description}
+                  slug={wdilwm.slug}
+                />
+              ))
+        }
+      </section>
+    </article>
+  </main>
+</Layout>
