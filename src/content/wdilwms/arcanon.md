@@ -11,7 +11,7 @@ arcanon (all lower caps) is a final project for the software engineering course.
 
 ## Websocket
 AFAIK, HTTP is a request-response protocol, which means that the client needs to send a request to the server to get a response. This approach was not suitable for a chat feature, where real-time communication was essential. This is where websocket comes in. Websocket is a protocol that allows a two-way communication between client and server. This means that the server can send a message to the client without the client asking for it. This is perfect for a chat feature, because the server can send a message to the client whenever there is a new message.
-![Websocket](/assets/img/wdilwms/arcanon/Websocket_vs_HTTP.png)
+![Websocket](https://github.com/irfanalmsyah/irfanalmsyah.github.io/blob/main/assets/img/wdilwms/arcanon/Websocket_vs_HTTP.png?raw=true)
 
 ### Using Websocket in Django
 Since Django doesn't provide built-in websocket support, so I needed to use a third-party library. I used [django-channels](https://channels.readthedocs.io/en/stable/), which is a third-party library that allows websocket in Django. Quoting from the documentation,
@@ -30,7 +30,7 @@ TDjango's ORM (Object-Relational Mapping) operates synchronously, which means th
 In the web application, there are some features where the user needs to send a request to the server to get a response, for example giving a like, posting comments, requesting a room chat, and so on. When user does this, the page will be refreshed. We don't really like it even though it was working fine. I did some research (read: googling) and found out that AJAX is the solution.
 
 ### AJAX the football team?
-![Ajax the football team](/assets/img/wdilwms/arcanon/ajax.jpg)
+![Ajax the football team](https://github.com/irfanalmsyah/irfanalmsyah.github.io/blob/main/assets/img/wdilwms/arcanon/ajax.jpg?raw=true)
 No, not that Ajax. AJAX (Asynchronous JavaScript and XML) is a technique for creating fast and dynamic web pages. It allows web pages to be updated asynchronously by exchanging small amounts of data with the server behind the scenes. It basically create an API request to the server, and the server will send a response in JSON format. This means that it is possible to update parts of a web page, without reloading the whole page. This is perfect for the features that I mentioned above.
 
 ## Deploying on Digital Ocean Droplet

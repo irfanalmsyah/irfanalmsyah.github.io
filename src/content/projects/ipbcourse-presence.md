@@ -8,6 +8,6 @@ isPublish: true
 ---
 
 ## Screenshots
-![Screenshot](/assets/img/projects/ipbcourse-presence/ipbcourse1.png)
-![Screenshot](/assets/img/projects/ipbcourse-presence/ipbcourse2.png)
-![Screenshot](/assets/img/projects/ipbcourse-presence/ipbcourse3.png)
+![Screenshot](https://github.com/irfanalmsyah/irfanalmsyah.github.io/blob/main/assets/img/projects/ipbcourse-presence/ipbcourse1.png?raw=true)
+![Screenshot](https://github.com/irfanalmsyah/irfanalmsyah.github.io/blob/main/assets/img/projects/ipbcourse-presence/ipbcourse2.png?raw=true)
+![Screenshot](https://github.com/irfanalmsyah/irfanalmsyah.github.io/blob/main/assets/img/projects/ipbcourse-presence/ipbcourse3.png?raw=true)

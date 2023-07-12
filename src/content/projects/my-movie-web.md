@@ -10,6 +10,6 @@ isPublish: true
 
 ## Screenshots
 # Main Page
-![Main Page](/assets/img/projects/my-movie-web/index.png)
+![Main Page](https://github.com/irfanalmsyah/irfanalmsyah.github.io/blob/main/assets/img/projects/my-movie-web/index.png?raw=true)
 # Detail Page
-![Main Page](/assets/img/projects/my-movie-web/pages.png)
+![Main Page](https://github.com/irfanalmsyah/irfanalmsyah.github.io/blob/main/assets/img/projects/my-movie-web/pages.png?raw=true)

@@ -9,8 +9,8 @@ isPublish: true
 
 ## Screenshots
 # Main Page
-![Main Page](/assets/img/projects/backend-gdsc/main.png)
+![Main Page](https://github.com/irfanalmsyah/irfanalmsyah.github.io/blob/main/assets/img/projects/backend-gdsc/main.png?raw=true)
 # Login Page
-![Login Page](/assets/img/projects/backend-gdsc/login.png)
+![Login Page](https://github.com/irfanalmsyah/irfanalmsyah.github.io/blob/main/assets/img/projects/backend-gdsc/login.png?raw=true)
 # Register Page
-![Register Page](/assets/img/projects/backend-gdsc/registerpage.png)
+![Register Page](https://github.com/irfanalmsyah/irfanalmsyah.github.io/blob/main/assets/img/projects/backend-gdsc/registerpage.png?raw=true)
