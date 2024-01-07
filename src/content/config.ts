@@ -8,6 +8,7 @@ const projectsCollection = defineCollection({
     description: z.string(),
     github: z.string(),
     demo: z.string().optional(),
+    paper: z.string().optional(),
     wdilwm: z.string().optional(),
     isPublish: z.boolean(),
     isDraft: z.boolean().default(false),

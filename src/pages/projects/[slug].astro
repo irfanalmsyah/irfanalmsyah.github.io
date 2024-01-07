@@ -5,6 +5,7 @@ import GithubCard from "@/components/GithubCard.astro";
 import DemoCard from "@/components/DemoCard.astro";
 import formatDate from "@/utils/formatDate";
 import WdilwmPageCard from "@/components/WdilwmPageCard.astro";
+import PaperCard from "@/components/PaperCard.astro";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -37,6 +38,7 @@ const { Content } = await project.render();
 
     <GithubCard link={project.data.github}/>
     {project.data.demo && <DemoCard link={project.data.demo}/>}
+    {project.data.paper && <PaperCard link={project.data.paper}/>}
     {project.data.wdilwm && <WdilwmPageCard name={project.data.title} wdilwm={project.data.wdilwm}/>}
     <Content />
   </main>
