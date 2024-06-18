@@ -1,0 +1,65 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import FormattedDate from "@components/FormattedDate.astro";
+import { readingTime } from "@lib/utils";
+import BackToPrevious from "@components/BackToPrevious.astro";
+import TableOfContents from "@components/TableOfContents.astro";
+import ProjectPageCard from "@components/ProjectPageCard.astro";
+import DemoCard from "@components/DemoCard.astro";
+import PaperCard from "@components/PaperCard.astro";
+import GithubCard from "@components/GithubCard.astro";
+
+export async function getStaticPaths() {
+  const wdilwms = (await getCollection("wdilwms"))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+  return wdilwms.map((wdilwm) => ({
+    params: { slug: wdilwm.slug },
+    props: wdilwm,
+  }));
+}
+type Props = CollectionEntry<"projects">;
+
+const wdilwm = Astro.props;
+const { Content, headings } = await wdilwm.render();
+---
+
+<Layout title={wdilwm.data.title} description={wdilwm.data.description}>
+  <Container>
+    <div class="animate">
+      <BackToPrevious href="/wdilwms">Back to wdilwms</BackToPrevious>
+    </div>
+    <div class="animate my-10 space-y-4">
+      <div>
+        <div class="flex items-center gap-1.5">
+          <div class="font-base text-sm">
+            <FormattedDate date={wdilwm.data.publishedAt} />
+          </div>
+          &bull;
+          <div class="font-base text-sm">
+            {readingTime(wdilwm.body)}
+          </div>
+        </div>
+        <h1 class="text-3xl font-semibold text-black dark:text-white">
+          {wdilwm.data.title}
+        </h1>
+      </div>
+      {
+        (wdilwm.data.demo || wdilwm.data.project || wdilwm.data.paper || wdilwm.data.github) && (
+          <div class="flex gap-1">
+            {wdilwm.data.demo && <DemoCard link={wdilwm.data.demo}/>}
+            {wdilwm.data.project && <ProjectPageCard project={wdilwm.data.project}/>}
+            {wdilwm.data.paper && <PaperCard link={wdilwm.data.paper}/>}
+            {wdilwm.data.github && <GithubCard link={wdilwm.data.github}/>}
+          </div>
+        )
+      }
+    </div>
+    <TableOfContents headings={headings} />
+    <article class="animate">
+      <Content />
+    </article>
+  </Container>
+</Layout>

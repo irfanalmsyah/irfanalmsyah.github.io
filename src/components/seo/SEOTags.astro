@@ -1,6 +1,7 @@
 ---
+import { SITE } from "@consts";
 import { SEO } from "astro-seo";
-import { SITE_URL } from "@/data/config";
+
 
 type Props = {
   title?: string;
@@ -17,26 +18,21 @@ type Props = {
 
 const { title, description, noindex, og } = Astro.props;
 
-const DEFAULT_TITLE_PAGE = "Irfan Alamsyah";
-const DEFAULT_DESCRIPTION_PAGE =
-  "Personal portfolio website of Irfan Alamsyah. I'm a software engineer and web developer based in Indonesia. I love to build web applications and websites.";
-const DEFAULT_URL_SITE = SITE_URL;
-
 const openGraph = {
-  title: og?.title || DEFAULT_TITLE_PAGE,
+  title: og?.title || SITE.TITLE,
   type: og?.type || "website",
   image: "/opengraph-image.png",
   alt: og?.alt || "Irfan Alamsyah",
-  url: DEFAULT_URL_SITE,
-  description: og?.description || DEFAULT_DESCRIPTION_PAGE,
+  url: SITE.URL,
+  description: og?.description || SITE.DESCRIPTION,
 };
 ---
 
 <head>
   <SEO
     charset="UTF-8"
-    title={title || DEFAULT_TITLE_PAGE}
-    description={description || DEFAULT_DESCRIPTION_PAGE}
+    title={title || SITE.TITLE}
+    description={description || SITE.DESCRIPTION}
     noindex={noindex || false}
     openGraph={{
       basic: {

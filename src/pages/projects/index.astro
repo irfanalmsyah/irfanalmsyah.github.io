@@ -1,39 +1,39 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "@/layouts/Layout.astro";
-import formatDate from "@/utils/formatDate";
-import Link from "@/components/shared/Link.astro";
-import ProjectCard from "@/components/ProjectCard.astro";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import ArrowCard from "@components/ArrowCard.astro";
+import { PROJECTS } from "@consts";
+import { formatDate } from "@lib/utils";
 
-const projects = await getCollection("projects");
-projects.sort((a, b) => Date.parse(b.data.publishedAt) - Date.parse(a.data.publishedAt));
+const projects = (await getCollection("projects"))
+  .filter((project) => !project.data.isDraft)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 ---
 
-<Layout title="Projects">
-  <main class="flex flex-col gap-20">
-    <header>
-      <h1 class="text-2xl text-neutral-100">Projects</h1>
-      <p class="text-neutral-300">
-        <span class="font-bold">{projects.length}</span> projects published since <span class="font-bold">{formatDate(projects[projects.length - 1].data.publishedAt)}</span>
-      </p>
-    </header>
-
-    <article class="flex flex-col gap-8">
-      {projects.length === 0 && <p>Soon, stay connected 👀...</p>}
-      <section class="flex flex-col gap-4 md:flex-row md:flex-wrap">
+<Layout title={PROJECTS.TITLE} description={PROJECTS.DESCRIPTION}>
+  <Container>
+    <div class="space-y-10">
+      <div>
+        <div class="animate font-semibold text-black dark:text-white text-2xl">
+          Projects
+        </div>
+        <p class="text-neutral-300">
+          <span class="font-bold">{projects.length}
+            </span>
+              projects published since <span class="font-bold">{formatDate(projects[projects.length - 1].data.publishedAt)}
+            </span>
+        </p>
+      </div>
+      <ul class="animate not-prose gap-4 grid grid-cols-1 sm:grid-cols-2">
         {
-          projects.length !== 0 &&
-            projects
-              .map((project) => (
-                <ProjectCard
-                  publishedAt={project.data.publishedAt}
-                  title={project.data.title}
-                  description={project.data.description}
-                  slug={project.slug}
-                />
-              ))
+          projects.map((project) => (
+            <li>
+              <ArrowCard entry={project} />
+            </li>
+          ))
         }
-      </section>
-    </article>
-  </main>
+      </ul>
+    </div>
+  </Container>
 </Layout>
