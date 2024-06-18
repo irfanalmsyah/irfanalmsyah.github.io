@@ -1,17 +1,15 @@
 ---
-import presentation from "@/data/presentation";
+import { SOCIALS } from "@consts";
 ---
 
 <ul role="list" class="flex flex-row gap-2">
-  {
-    presentation.socials.map((social, index) => (
-      <>
+    {
+    SOCIALS.map((SOCIAL) => (
         <li>
-          <a href={social.link} class="hover:text-neutral-100 cursor-pointer text-3xl" rel="noreferrer" target="_blank">
-            <i class={`bi bi-${social.icon}`}></i>
-          </a>
+            <a href={SOCIAL.HREF} class="hover:text-neutral-100 cursor-pointer text-3xl" rel="noreferrer" target="_blank">
+            <i class={`bi bi-${SOCIAL.ICON}`}></i>
+            </a>
         </li>
-      </>
     ))
-  }
+    }
 </ul>

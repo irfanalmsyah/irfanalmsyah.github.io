@@ -1,0 +1,65 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import FormattedDate from "@components/FormattedDate.astro";
+import { readingTime } from "@lib/utils";
+import BackToPrevious from "@components/BackToPrevious.astro";
+import TableOfContents from "@components/TableOfContents.astro";
+import DemoCard from "@components/DemoCard.astro";
+import ProjectPageCard from "@components/ProjectPageCard.astro";
+import GithubCard from "@components/GithubCard.astro";
+import PaperCard from "@components/PaperCard.astro";
+
+export async function getStaticPaths() {
+  const projects = (await getCollection("projects"))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: project,
+  }));
+}
+type Props = CollectionEntry<"projects">;
+
+const project = Astro.props;
+const { Content, headings } = await project.render();
+---
+
+<Layout title={project.data.title} description={project.data.description}>
+  <Container>
+    <div class="animate">
+      <BackToPrevious href="/projects">Back to projects</BackToPrevious>
+    </div>
+    <div class="animate my-10 space-y-4">
+      <div>
+        <div class="flex items-center gap-1.5">
+          <div class="font-base text-sm">
+            <FormattedDate date={project.data.publishedAt} />
+          </div>
+          &bull;
+          <div class="font-base text-sm">
+            {readingTime(project.body)}
+          </div>
+        </div>
+        <h1 class="text-3xl font-semibold text-black dark:text-white">
+          {project.data.title}
+        </h1>
+      </div>
+      {
+        (project.data.demo || project.data.project || project.data.paper || project.data.github) && (
+          <div class="flex gap-1">
+            {project.data.demo && <DemoCard link={project.data.demo}/>}
+            {project.data.project && <ProjectPageCard project={project.data.project}/>}
+            {project.data.paper && <PaperCard link={project.data.paper}/>}
+            {project.data.github && <GithubCard link={project.data.github}/>}
+          </div>
+        )
+      }
+    </div>
+    <TableOfContents headings={headings} />
+    <article class="animate">
+      <Content />
+    </article>
+  </Container>
+</Layout>
