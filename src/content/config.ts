@@ -37,5 +37,9 @@ export const experienceCollection = defineCollection({
     role: z.string(),
     dateStart: z.coerce.date(),
     dateEnd: z.union([z.coerce.date(), z.string()]).optional(),
+    isVolunteer: z.boolean(),
+    isCourseWork: z.boolean(),
+    isTechnical: z.boolean(),
+    jobdesc: z.array(z.string()),
   }),
 });
