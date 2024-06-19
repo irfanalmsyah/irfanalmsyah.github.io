@@ -29,3 +29,17 @@ export const wdilwmCollection = defineCollection({
     isDraft: z.boolean().default(false),
   }),
 });
+
+export const experienceCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    company: z.string(),
+    role: z.string(),
+    dateStart: z.coerce.date(),
+    dateEnd: z.union([z.coerce.date(), z.string()]).optional(),
+    isVolunteer: z.boolean(),
+    isCourseWork: z.boolean(),
+    isTechnical: z.boolean(),
+    jobdesc: z.array(z.string()),
+  }),
+});
