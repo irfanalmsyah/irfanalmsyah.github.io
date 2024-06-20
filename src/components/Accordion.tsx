@@ -28,7 +28,7 @@ export function Accordion({ data }: Props) {
             return (
             <AccordionItem value={`item-${i.toFixed()}`}>
                 <AccordionTrigger>
-                    <div className="flex w-full flex-col justify-between gap-2 md:flex-row items-center pr-3">
+                    <div className="flex w-full flex-row justify-between gap-2 items-center pr-3">
                         <div>
                             <div className="font-semibold text-black dark:text-white text-left">
                                 {item.data.role} {item.data.isVolunteer && <Badge variant="outline">Volunteer</Badge>} {item.data.isCourseWork && <Badge variant="outline">Course Work</Badge>}
@@ -37,7 +37,7 @@ export function Accordion({ data }: Props) {
                                 {item.data.company}
                             </div>
                         </div>
-                        <div className="text-sm opacity-75">
+                        <div className="text-sm opacity-75 md:text-right">
                             {dateRange(item.data.dateStart, item.data.dateEnd)}
                         </div>
                     </div>
