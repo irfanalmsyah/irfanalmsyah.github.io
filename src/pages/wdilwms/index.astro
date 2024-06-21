@@ -3,14 +3,14 @@ import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
 import ArrowCard from "@components/ArrowCard.astro";
-import { PROJECTS } from "@consts";
+import { WDILWMS } from "@consts";
 
 const wdilwms = (await getCollection("wdilwms"))
   .filter((project) => !project.data.draft)
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 ---
 
-<Layout title={PROJECTS.TITLE} description={PROJECTS.DESCRIPTION}>
+<Layout title={WDILWMS.TITLE} description={WDILWMS.DESCRIPTION}>
   <Container>
     <div class="space-y-10">
       <div>
