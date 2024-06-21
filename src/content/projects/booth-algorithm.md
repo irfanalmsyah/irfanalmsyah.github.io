@@ -4,7 +4,7 @@ publishedAt: 2023-06-04
 description: "A booth multiplication algorithm explained step by step"
 slug: "booth-algorithm"
 github: "https://github.com/irfanalmsyah/booth-algorithm"
-demo: "https://irfanalmsyah.github.io/booth-algorithm/"
+demo: "https://booth.irfanalamsyah.com/"
 isPublish: true
 ---
 
