@@ -1,6 +1,6 @@
 ---
 title: "Acnetify API"
-publishedAt: 2023-05-29
+publishedAt: 2024-05-29
 description: "RESTful API made with TypeScript, Express.js, and Firebase Firestore"
 slug: "acnetify-api"
 github: "https://github.com/Acnetify/acnetify-api"
