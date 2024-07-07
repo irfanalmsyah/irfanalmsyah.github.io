@@ -15,8 +15,8 @@ export const HOME: Metadata = {
 };
 
 export const WDILWMS: Metadata = {
-  TITLE: "Blog",
-  DESCRIPTION: "A collection of articles on topics I am passionate about.",
+  TITLE: "WDILWMs",
+  DESCRIPTION: "A series of articles where I share what I learned while making a project",
 };
 
 export const PROJECTS: Metadata = {
