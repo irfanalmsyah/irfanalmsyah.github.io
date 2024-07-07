@@ -2,6 +2,7 @@
 company: "Computer Science Department, IPB University"
 role: "Programming Laboratory Teaching Assistant"
 dateStart: 2024-01-01
+dateEnd: 2024-06-01
 isVolunteer: false
 isCourseWork: false
 isTechnical: false
