@@ -1,7 +1,8 @@
 ---
-company: "PT. Mostrans Global Digilog"
+company: "PT Mostrans Global Digilog"
 role: "Application Developer"
 dateStart: 2024-09-17
+dateEnd: 2025-02-01
 isVolunteer: false
 isCourseWork: false
 isTechnical: true
