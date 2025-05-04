@@ -1,7 +1,7 @@
 ---
 company: "PT Foom Lab Global "
 role: "Software Engineer"
-dateStart: 2024-02-24
+dateStart: 2024-02-25
 isVolunteer: false
 isCourseWork: false
 isTechnical: true
